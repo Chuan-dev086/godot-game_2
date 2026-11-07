@@ -1,7 +1,5 @@
 using Godot;
 
-namespace AgentPlatformer;
-
 /// <summary>Phase 1 最小流程：死亡重生和 R 键重启。</summary>
 public partial class GameManager : Node2D
 {

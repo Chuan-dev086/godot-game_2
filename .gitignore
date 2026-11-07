@@ -1,8 +1,7 @@
 # Godot 4 专属忽略规则
-.godot/mono/temp/
-.godot/mono/metadata/
-.godot/imported/
-.godot/editor/export-*.cfg
+.godot/
+*.uid
+godot-*.log
 *.import
 *.translation
 

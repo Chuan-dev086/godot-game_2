@@ -1,7 +1,5 @@
 using Godot;
 
-namespace AgentPlatformer;
-
 /// <summary>平滑跟随目标，且将相机中心钳制在关卡边界内。</summary>
 public partial class CameraController : Camera2D
 {

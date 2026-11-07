@@ -1,8 +1,0 @@
-78098b89c88a74ebe8c20117b8754620
-::res://::1794052797
-CameraController.cs::CSharpScript::7212932974061470704::1794052861::0::1::::<><><>0<>0<><>::
-GameManager.cs::CSharpScript::1395653227545357674::1794052862::0::1::::<><><>0<>0<><>::
-Main.tscn::PackedScene::-1::1794052780::0::1::::<><><>0<>0<><>::res://GameManager.cs<>res://Player.tscn<>res://CameraController.cs
-plan.md::TextFile::-1::1794052736::0::1::::<><><>0<>0<><>::
-Player.tscn::PackedScene::-1::1794052780::0::1::::<><><>0<>0<><>::res://PlayerController.cs
-PlayerController.cs::CSharpScript::6797948243610934618::1794052679::0::1::::<><><>0<>0<><>::

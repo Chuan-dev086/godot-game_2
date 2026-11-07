@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerMovementSettings" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://PlayerMovementSettings.cs" id="1_settings"]
+
+[resource]
+script = ExtResource("1_settings")
+MaxRunSpeed = 340.0
+GroundAcceleration = 2200.0
+GroundDeceleration = 2800.0
+AirAcceleration = 1200.0
+Gravity = 1400.0
+MaxFallSpeed = 1200.0
+JumpVelocity = 750.0
+JumpReleaseGravityMultiplier = 3.0
+MaxJumps = 2
+CoyoteTimeSeconds = 0.1
+JumpBufferSeconds = 0.1
