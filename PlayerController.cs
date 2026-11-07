@@ -6,7 +6,7 @@ public partial class PlayerController : CharacterBody2D
     [Signal] public delegate void DiedEventHandler();
 
     [Export] public PlayerMovementSettings MovementSettings { get; set; } = new();
-    [Export] public float DeathY { get; set; } = 950.0f;
+    [Export] public float DeathY { get; set; } = 900.0f;
 
     public PlayerStateMachine StateMachine { get; private set; } = null!;
     public IdleState IdleState { get; private set; } = null!;
