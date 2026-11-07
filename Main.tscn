@@ -1,10 +1,21 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_manager"]
 [ext_resource type="PackedScene" path="res://Player.tscn" id="2_player"]
 [ext_resource type="Script" path="res://CameraController.cs" id="3_camera"]
-[ext_resource type="Script" path="res://LevelBuilder.cs" id="4_builder"]
-[ext_resource type="Script" path="res://LevelController.cs" id="5_levelctrl"]
+[ext_resource type="Script" path="res://LevelController.cs" id="4_levelctrl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(1280, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
+size = Vector2(256, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_center"]
+size = Vector2(256, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right"]
+size = Vector2(256, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_col0"]
 size = Vector2(36, 36)
@@ -37,15 +48,78 @@ mouse_filter = 2
 color = Color(0.055, 0.075, 0.13, 1)
 
 [node name="LevelController" type="Node" parent="."]
-script = ExtResource("5_levelctrl")
+script = ExtResource("4_levelctrl")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-script = ExtResource("4_builder")
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Level"]
+position = Vector2(640, 680)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Ground"]
+offset_left = -640.0
+offset_top = -40.0
+offset_right = 640.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="PlatformLeft" type="StaticBody2D" parent="Level"]
+position = Vector2(192, 530)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformLeft"]
+shape = SubResource("RectangleShape2D_left")
+
+[node name="ColorRect" type="ColorRect" parent="Level/PlatformLeft"]
+offset_left = -128.0
+offset_top = -18.0
+offset_right = 128.0
+offset_bottom = 18.0
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="PlatformCenter" type="StaticBody2D" parent="Level"]
+position = Vector2(640, 402)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformCenter"]
+shape = SubResource("RectangleShape2D_center")
+
+[node name="ColorRect" type="ColorRect" parent="Level/PlatformCenter"]
+offset_left = -128.0
+offset_top = -18.0
+offset_right = 128.0
+offset_bottom = 18.0
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="PlatformRight" type="StaticBody2D" parent="Level"]
+position = Vector2(1088, 466)
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformRight"]
+shape = SubResource("RectangleShape2D_right")
+
+[node name="ColorRect" type="ColorRect" parent="Level/PlatformRight"]
+offset_left = -128.0
+offset_top = -18.0
+offset_right = 128.0
+offset_bottom = 18.0
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
 
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Coin0" type="Area2D" parent="Collectibles" groups=["collectible"]]
-position = Vector2(192, 492)
+position = Vector2(192, 470)
 collision_layer = 0
 collision_mask = 2
 
@@ -61,7 +135,7 @@ mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
 [node name="Coin1" type="Area2D" parent="Collectibles" groups=["collectible"]]
-position = Vector2(640, 356)
+position = Vector2(640, 342)
 collision_layer = 0
 collision_mask = 2
 
@@ -77,7 +151,7 @@ mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
 [node name="Coin2" type="Area2D" parent="Collectibles" groups=["collectible"]]
-position = Vector2(1024, 428)
+position = Vector2(1088, 406)
 collision_layer = 0
 collision_mask = 2
 
@@ -93,7 +167,7 @@ mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
 [node name="Hazard" type="Area2D" parent="." groups=["hazard"]]
-position = Vector2(640, 630)
+position = Vector2(640, 615)
 collision_layer = 0
 collision_mask = 2
 
@@ -109,7 +183,7 @@ mouse_filter = 2
 color = Color(0.9, 0.1, 0.1, 1)
 
 [node name="Goal" type="Area2D" parent="." groups=["goal"]]
-position = Vector2(1200, 575)
+position = Vector2(1200, 580)
 collision_layer = 0
 collision_mask = 2
 
