@@ -1,0 +1,15 @@
+# Godot 4 专属忽略规则
+.godot/mono/temp/
+.godot/mono/metadata/
+.godot/imported/
+.godot/editor/export-*.cfg
+*.import
+*.translation
+
+# .NET / C# 忽略规则
+[Bb]in/
+[Oo]bj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
