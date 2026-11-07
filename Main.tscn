@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene format=3 uid="uid://hsoleaqri3vv"]
 
-[ext_resource type="Script" path="res://GameManager.cs" id="1_manager"]
+[ext_resource type="Script" uid="uid://t5cg7xrbn16m" path="res://GameManager.cs" id="1_manager"]
 [ext_resource type="PackedScene" path="res://Player.tscn" id="2_player"]
-[ext_resource type="Script" path="res://CameraController.cs" id="3_camera"]
-[ext_resource type="Script" path="res://LevelController.cs" id="4_levelctrl"]
+[ext_resource type="Script" uid="uid://da087m2vph78g" path="res://CameraController.cs" id="3_camera"]
+[ext_resource type="Script" uid="uid://euq2fnp6r75t" path="res://LevelController.cs" id="4_levelctrl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(1280, 80)
@@ -32,7 +32,7 @@ size = Vector2(100, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
 size = Vector2(80, 120)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=729551485]
 script = ExtResource("1_manager")
 PlayerPath = NodePath("Player")
 SpawnPointPath = NodePath("PlayerSpawn")
@@ -41,92 +41,84 @@ CollectLabelPath = NodePath("CanvasLayer/Hud/CollectLabel")
 StatusLabelPath = NodePath("CanvasLayer/Hud/StatusLabel")
 HintLabelPath = NodePath("CanvasLayer/Hud/HintLabel")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=627141652]
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 color = Color(0.055, 0.075, 0.13, 1)
 
-[node name="LevelController" type="Node" parent="."]
+[node name="LevelController" type="Node" parent="." unique_id=144047535]
 script = ExtResource("4_levelctrl")
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" type="Node2D" parent="." unique_id=1406290033]
 
-[node name="Ground" type="StaticBody2D" parent="Level"]
+[node name="Ground" type="StaticBody2D" parent="Level" unique_id=801220860]
 position = Vector2(640, 680)
-collision_layer = 1
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Ground" unique_id=1871147386]
 shape = SubResource("RectangleShape2D_ground")
 
-[node name="ColorRect" type="ColorRect" parent="Level/Ground"]
+[node name="ColorRect" type="ColorRect" parent="Level/Ground" unique_id=433970914]
 offset_left = -640.0
 offset_top = -40.0
 offset_right = 640.0
 offset_bottom = 40.0
 mouse_filter = 2
-color = Color(1, 1, 1, 1)
 
-[node name="PlatformLeft" type="StaticBody2D" parent="Level"]
+[node name="PlatformLeft" type="StaticBody2D" parent="Level" unique_id=93283584]
 position = Vector2(192, 530)
-collision_layer = 1
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformLeft" unique_id=1742340257]
 shape = SubResource("RectangleShape2D_left")
 
-[node name="ColorRect" type="ColorRect" parent="Level/PlatformLeft"]
+[node name="ColorRect" type="ColorRect" parent="Level/PlatformLeft" unique_id=50803096]
 offset_left = -128.0
 offset_top = -18.0
 offset_right = 128.0
 offset_bottom = 18.0
 mouse_filter = 2
-color = Color(1, 1, 1, 1)
 
-[node name="PlatformCenter" type="StaticBody2D" parent="Level"]
+[node name="PlatformCenter" type="StaticBody2D" parent="Level" unique_id=742142833]
 position = Vector2(640, 402)
-collision_layer = 1
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformCenter"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformCenter" unique_id=812670867]
 shape = SubResource("RectangleShape2D_center")
 
-[node name="ColorRect" type="ColorRect" parent="Level/PlatformCenter"]
+[node name="ColorRect" type="ColorRect" parent="Level/PlatformCenter" unique_id=987792700]
 offset_left = -128.0
 offset_top = -18.0
 offset_right = 128.0
 offset_bottom = 18.0
 mouse_filter = 2
-color = Color(1, 1, 1, 1)
 
-[node name="PlatformRight" type="StaticBody2D" parent="Level"]
+[node name="PlatformRight" type="StaticBody2D" parent="Level" unique_id=70071432]
 position = Vector2(1088, 466)
-collision_layer = 1
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformRight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/PlatformRight" unique_id=1963759901]
 shape = SubResource("RectangleShape2D_right")
 
-[node name="ColorRect" type="ColorRect" parent="Level/PlatformRight"]
+[node name="ColorRect" type="ColorRect" parent="Level/PlatformRight" unique_id=808260796]
 offset_left = -128.0
 offset_top = -18.0
 offset_right = 128.0
 offset_bottom = 18.0
 mouse_filter = 2
-color = Color(1, 1, 1, 1)
 
-[node name="Collectibles" type="Node2D" parent="."]
+[node name="Collectibles" type="Node2D" parent="." unique_id=1550325098]
 
-[node name="Coin0" type="Area2D" parent="Collectibles" groups=["collectible"]]
+[node name="Coin0" type="Area2D" parent="Collectibles" unique_id=1479405340 groups=["collectible"]]
 position = Vector2(192, 470)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin0" unique_id=1229637916]
 shape = SubResource("RectangleShape2D_col0")
 
-[node name="ColorRect" type="ColorRect" parent="Collectibles/Coin0"]
+[node name="ColorRect" type="ColorRect" parent="Collectibles/Coin0" unique_id=2034667334]
 offset_left = -18.0
 offset_top = -18.0
 offset_right = 18.0
@@ -134,15 +126,15 @@ offset_bottom = 18.0
 mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
-[node name="Coin1" type="Area2D" parent="Collectibles" groups=["collectible"]]
+[node name="Coin1" type="Area2D" parent="Collectibles" unique_id=1587314028 groups=["collectible"]]
 position = Vector2(640, 342)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin1" unique_id=1990986507]
 shape = SubResource("RectangleShape2D_col1")
 
-[node name="ColorRect" type="ColorRect" parent="Collectibles/Coin1"]
+[node name="ColorRect" type="ColorRect" parent="Collectibles/Coin1" unique_id=1628907419]
 offset_left = -18.0
 offset_top = -18.0
 offset_right = 18.0
@@ -150,15 +142,15 @@ offset_bottom = 18.0
 mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
-[node name="Coin2" type="Area2D" parent="Collectibles" groups=["collectible"]]
+[node name="Coin2" type="Area2D" parent="Collectibles" unique_id=1073311340 groups=["collectible"]]
 position = Vector2(1088, 406)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin2" unique_id=1074924405]
 shape = SubResource("RectangleShape2D_col2")
 
-[node name="ColorRect" type="ColorRect" parent="Collectibles/Coin2"]
+[node name="ColorRect" type="ColorRect" parent="Collectibles/Coin2" unique_id=1448682874]
 offset_left = -18.0
 offset_top = -18.0
 offset_right = 18.0
@@ -166,15 +158,15 @@ offset_bottom = 18.0
 mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
-[node name="Hazard" type="Area2D" parent="." groups=["hazard"]]
+[node name="Hazard" type="Area2D" parent="." unique_id=287178143 groups=["hazard"]]
 position = Vector2(640, 615)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=789993860]
 shape = SubResource("RectangleShape2D_hazard")
 
-[node name="ColorRect" type="ColorRect" parent="Hazard"]
+[node name="ColorRect" type="ColorRect" parent="Hazard" unique_id=801249669]
 offset_left = -50.0
 offset_top = -25.0
 offset_right = 50.0
@@ -182,15 +174,15 @@ offset_bottom = 25.0
 mouse_filter = 2
 color = Color(0.9, 0.1, 0.1, 1)
 
-[node name="Goal" type="Area2D" parent="." groups=["goal"]]
+[node name="Goal" type="Area2D" parent="." unique_id=962300072 groups=["goal"]]
 position = Vector2(1200, 580)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=1991841822]
 shape = SubResource("RectangleShape2D_goal")
 
-[node name="ColorRect" type="ColorRect" parent="Goal"]
+[node name="ColorRect" type="ColorRect" parent="Goal" unique_id=379152459]
 offset_left = -40.0
 offset_top = -60.0
 offset_right = 40.0
@@ -198,14 +190,13 @@ offset_bottom = 60.0
 mouse_filter = 2
 color = Color(0.1, 0.9, 0.3, 1)
 
-[node name="PlayerSpawn" type="Marker2D" parent="."]
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1435555437]
 position = Vector2(120, 580)
 
-[node name="Player" parent="." instance=ExtResource("2_player")]
+[node name="Player" parent="." unique_id=1332499557 instance=ExtResource("2_player")]
 collision_layer = 2
-collision_mask = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1739273830]
 position = Vector2(640, 360)
 limit_left = 0
 limit_top = 0
@@ -214,9 +205,9 @@ limit_bottom = 720
 script = ExtResource("3_camera")
 TargetPath = NodePath("../Player")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1662497326]
 
-[node name="Hud" type="Control" parent="CanvasLayer"]
+[node name="Hud" type="Control" parent="CanvasLayer" unique_id=2047736647]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -225,7 +216,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="CollectLabel" type="Label" parent="CanvasLayer/Hud"]
+[node name="CollectLabel" type="Label" parent="CanvasLayer/Hud" unique_id=229409804]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 24.0
 offset_right = 400.0
@@ -234,9 +226,9 @@ theme_override_colors/font_color = Color(1, 0.9, 0.3, 1)
 theme_override_font_sizes/font_size = 26
 text = "收集物: 0/3"
 
-[node name="StatusLabel" type="Label" parent="CanvasLayer/Hud"]
+[node name="StatusLabel" type="Label" parent="CanvasLayer/Hud" unique_id=58744615]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.35
 anchor_right = 0.5
@@ -249,9 +241,9 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
-text = ""
 
-[node name="HintLabel" type="Label" parent="CanvasLayer/Hud"]
+[node name="HintLabel" type="Label" parent="CanvasLayer/Hud" unique_id=1001984179]
+layout_mode = 0
 offset_left = 32.0
 offset_top = 66.0
 offset_right = 900.0

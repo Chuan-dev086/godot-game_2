@@ -37,9 +37,24 @@ public partial class PlayerController : CharacterBody2D
         StateMachine = new PlayerStateMachine(IdleState);
     }
 
+    private bool _isLocked;
+
+    public void SetLocked(bool locked)
+    {
+        _isLocked = locked;
+        if (locked)
+        {
+            Velocity = Vector2.Zero;
+            _horizontalIntent = 0.0f;
+            _coyoteTimer?.Stop();
+            _jumpBufferTimer?.Stop();
+            if (StateMachine is not null) StateMachine.ChangeState(IdleState);
+        }
+    }
+
     public override void _PhysicsProcess(double delta)
     {
-        if (_deathReported) return;
+        if (_deathReported || _isLocked) return;
 
         var input = CaptureInput();
         if (input.JumpPressed) _jumpBufferTimer.Start();
@@ -59,6 +74,7 @@ public partial class PlayerController : CharacterBody2D
     {
         GlobalPosition = spawnPosition;
         Velocity = Vector2.Zero;
+        _isLocked = false;
         _deathReported = false;
         _wasOnFloor = false;
         _jumpReleasedEarly = false;

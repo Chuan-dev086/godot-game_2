@@ -92,6 +92,7 @@ public partial class GameManager : Node2D
         _state = GameState.Playing;
         _levelCtrl?.ResetLevel();
         RespawnPlayer();
+        _player?.SetLocked(false);
         UpdateCollectLabel(0, _levelCtrl?.Total ?? 0);
         SetStatusText("");
         SetHintVisible(true);
@@ -103,8 +104,7 @@ public partial class GameManager : Node2D
         _state = GameState.GameOver;
         SetStatusText("Game Over\n按 R 重试");
         SetHintVisible(false);
-        RespawnPlayer();   // 立即重生（也可加延迟，但当前无 DeadState 动画）
-        // 重生后仍显示 GameOver 提示直到按 R
+        _player?.SetLocked(true);
     }
 
     private void OnLevelComplete()
@@ -113,8 +113,7 @@ public partial class GameManager : Node2D
         _state = GameState.LevelComplete;
         SetStatusText("Level Complete!\n按 R 重新开始");
         SetHintVisible(false);
-        // 冻结玩家输入
-        _player?.SetPhysicsProcess(false);
+        _player?.SetLocked(true);
     }
 
     private void OnCollectiblePickedUp(int current, int total)
