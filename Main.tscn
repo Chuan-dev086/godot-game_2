@@ -41,18 +41,13 @@ script = ExtResource("5_levelctrl")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 script = ExtResource("4_builder")
-collision_enabled = true
-collision_layer = 1
-collision_mask = 2
 
 [node name="Collectibles" type="Node2D" parent="."]
 
-[node name="Coin0" type="Area2D" parent="Collectibles"]
+[node name="Coin0" type="Area2D" parent="Collectibles" groups=["collectible"]]
 position = Vector2(192, 492)
 collision_layer = 0
 collision_mask = 2
-script = null
-groups = ["collectible"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin0"]
 shape = SubResource("RectangleShape2D_col0")
@@ -65,11 +60,10 @@ offset_bottom = 18.0
 mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
-[node name="Coin1" type="Area2D" parent="Collectibles"]
+[node name="Coin1" type="Area2D" parent="Collectibles" groups=["collectible"]]
 position = Vector2(640, 356)
 collision_layer = 0
 collision_mask = 2
-groups = ["collectible"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin1"]
 shape = SubResource("RectangleShape2D_col1")
@@ -82,11 +76,10 @@ offset_bottom = 18.0
 mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
-[node name="Coin2" type="Area2D" parent="Collectibles"]
+[node name="Coin2" type="Area2D" parent="Collectibles" groups=["collectible"]]
 position = Vector2(1024, 428)
 collision_layer = 0
 collision_mask = 2
-groups = ["collectible"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collectibles/Coin2"]
 shape = SubResource("RectangleShape2D_col2")
@@ -99,11 +92,10 @@ offset_bottom = 18.0
 mouse_filter = 2
 color = Color(1, 0.85, 0.1, 1)
 
-[node name="Hazard" type="Area2D" parent="."]
+[node name="Hazard" type="Area2D" parent="." groups=["hazard"]]
 position = Vector2(640, 630)
 collision_layer = 0
 collision_mask = 2
-groups = ["hazard"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard"]
 shape = SubResource("RectangleShape2D_hazard")
@@ -116,11 +108,10 @@ offset_bottom = 25.0
 mouse_filter = 2
 color = Color(0.9, 0.1, 0.1, 1)
 
-[node name="Goal" type="Area2D" parent="."]
+[node name="Goal" type="Area2D" parent="." groups=["goal"]]
 position = Vector2(1200, 575)
 collision_layer = 0
 collision_mask = 2
-groups = ["goal"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_goal")

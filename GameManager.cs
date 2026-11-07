@@ -57,7 +57,9 @@ public partial class GameManager : Node2D
             _levelCtrl.PlayerReachedGoal   += OnLevelComplete;
         }
 
-        EnterPlayingState();
+        // 延迟一帧再执行首次进入，让 LevelBuilder（TileMapLayer）有时间
+        // 完成物理体生成，避免玩家在第一个物理帧穿透地面
+        CallDeferred(nameof(EnterPlayingState));
     }
 
     public override void _UnhandledInput(InputEvent @event)
